@@ -7,3 +7,6 @@ b. Returns the following:
 /home 90 visits /index 80 visits etc... >
  - list of webpages with most unique page views also ordered e.g.:
 /about/2 8 unique views /index 5 unique views etc...
+
+To run script in main directory run:
+`./parsed_logs "webserver.log"`
