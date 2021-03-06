@@ -13,7 +13,7 @@ RSpec.describe Presenter do
   describe '#most_visits_template' do
     let(:result) do
       <<~TEXT
-        Addresses with with most visits:
+        Addresses with most visits:
         path/1 2 visits
         path/ 1 visit
       TEXT

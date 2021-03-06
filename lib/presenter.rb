@@ -3,7 +3,7 @@ class Presenter
     self.data = data
     format(
       <<~TEXT,
-        Addresses with with most visits:
+        Addresses with most visits:
         %<data>s
       TEXT
       data: most_visits.join("\n")
