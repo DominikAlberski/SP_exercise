@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+
+require_relative "lib/presenter"
+require_relative "lib/data_processor"
+require_relative "lib/parser"
+require_relative "lib/parsed_logs"
+
+puts ParsedLogs.call(ARGV, Presenter, Parser, DataProcessor)
