@@ -6,7 +6,7 @@ RSpec.describe Parser do
   let(:parser) { described_class.new(file_path) }
   let(:file_path) { "./spec/support/test.log" }
 
-  describe ".call" do
+  describe "#call" do
     context "with given path" do
       it "returns Array" do
         expect(parser.call).to be_kind_of(Array)
