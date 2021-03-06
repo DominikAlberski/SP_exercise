@@ -1,27 +1,28 @@
-require 'pry'
-require 'spec_helper'
-require 'parser'
+require "pry"
+require "spec_helper"
+require "parser"
 
 RSpec.describe Parser do
-  let(:service) { described_class.new(file_path) }
-  let(:file_path) { ["./spec/support/test.log"] }
+  let(:parser) { described_class.new(file_path) }
+  let(:file_path) { "./spec/support/test.log" }
 
-  describe '.call' do
-    let(:result) do
-      <<-TEXT
-        /help_page/1 2 visits
-        /contact 1 visit
-        /home 1 visit
-        /about/2 1 visit
-      TEXT
+  describe ".call" do
+    context "with given path" do
+      it "returns Array" do
+        expect(parser.call).to be_kind_of(Array)
+      end
+
+      it "returns Parser::LogData" do
+        expect(parser.call).to include(a_kind_of(Parser::LogData))
+      end
     end
 
-    it 'outputs list of pages views' do
-      expect(service.call.gsub(/\s/, "")).to include(result.gsub(/\s/, ""))
+    context "without path" do
+      let(:file_path) { nil }
+
+      it "raises an error" do
+        expect { parser.call }.to raise_error(Parser::Error)
+      end
     end
   end
 end
-# /help_page/1 2 unique views
-# /contact 1 unique view
-# /home 1 unique view
-# /about/2 1 unique view
